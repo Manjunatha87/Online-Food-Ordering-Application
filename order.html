@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Page</title>
+</head>
+<body>
+
+<h2>Delivery Address</h2>
+<textarea id="address" rows="4" cols="40" placeholder="Enter delivery address"></textarea>
+
+<h2>Payment Method</h2>
+<label>
+    <input type="radio" name="payment" value="COD"> Cash on Delivery
+</label><br>
+<label>
+    <input type="radio" name="payment" value="CARD"> Card
+</label><br>
+<label>
+    <input type="radio" name="payment" value="UPI"> UPI
+</label><br><br>
+
+<button onclick="makePayment()">Pay Now</button>
+
+<script>
+function makePayment() {
+    let address = document.getElementById("address").value;
+    let payment = document.querySelector('input[name="payment"]:checked');
+
+    if (address.trim() === "") {
+        alert("Please enter delivery address");
+        return;
+    }
+
+    if (!payment) {
+        alert("Please select payment method");
+        return;
+    }
+
+    alert("Payment successful");
+    alert("Your order placed successfully");
+
+    // Redirect to dashboard AFTER OK
+    window.location.href = "dashboard.html"; // dashboard page
+}
+</script>
+
+</body>
+</html>
